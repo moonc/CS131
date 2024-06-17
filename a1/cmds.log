@@ -1,0 +1,42 @@
+Question 1: cd CS131 -> mkdir a1 -> cd a1
+
+Question 2: echo $HOME
+
+Question 3: id allensu24
+
+Question 4: ls /proc/ #Note: After looking at the stdout of this command, I looked for a file that had mem in this title, i.e. meminfo and cpuinfo
+
+Question 5: head /proc/meminfo
+
+Question 6: cat /proc/cpuinfo > cpuinfo_file.txt -> tail cpuinfo_file.txt #Note : tail shows you the last couple processor numbers and you can know it starts from zero so you can do the last number +1 (255+1) to get the cpu number
+
+Question 7:
+  ls /etc/ #Note: to find the files in etc
+  head /etc/os-release #To find the version
+
+Commands used to unzip the taxi dataset: 
+  tar xzvf taxidata.tar.gz
+
+Question 8:grep -i "2019-05-12" *.csv | awk -F'[,|:]' '{SUM += $22} {DIV +=1} END {print SUM/DIV}'
+# Logic for statement above:
+  # First: grep to get the csv lines with the dat May 12 as asked for in the question
+  # Second: pipe into awk and assign delimeters of , and : to split the values into columns
+  # Once these are split, SUM the total_amount column values and add one to div to keep a running total of number of values/lines 
+  # finally, print the division of the sum and number of lines (thus resulting in the average).
+
+Question 9: 
+grep -i "2019-05-12" *.csv > may12.txt # put all lines from the specified dat into a text file
+cut -d , -f17 < may12.txt | sort -nr | head -1 
+#Logic for line above:
+  #cut the total amount value from each line and pipe that temporary file into sort to reverse numerically sort (-nr) . After that, get the very first value as it will be the largest total
+
+Question 10: awk -F '[,]' '$4>=3' 2019-05.csv |cut -d, -f9 |sort | uniq -c |sort -nr |head
+#Logic for line above:
+  #get the file to only display line where passenger count is greater than three
+  # cut the file to the column with the drop off location only
+  # sor the file to use uniq next
+  # get the uniq values in order of popularity
+  # sort the numerical values in reverse order (thus getting the most frequent values as per the first column delimited by the space character)
+  # head outputs the first ten values (of drop off location)
+
+vim cmds.log was used to generate this file
