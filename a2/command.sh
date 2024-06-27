@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ -d "counts_output" ];then
+	rm counts_output/*
+	rm -d counts_output
+fi
+
 echo "Please enter a filename that contains the gene names in the first column"
 read gene_file
 
@@ -18,12 +23,29 @@ done
 echo "The file processing has resulted in the following counts matrix"
 cat counts_matrix.txt
 rm counts_column
-mkdir output
-mv counts_matrix.txt counts_matrix.csv && mv counts_matrix.csv output
+mkdir counts_output
+mv counts_matrix.txt counts_matrix.csv && mv counts_matrix.csv counts_output
 
 echo "The following samples were processed and are in the output CSV file"
+
+if [ -e "filenames.txt" ];then
+	rm filenames.txt
+fi
+
+touch filenames.txt
 for i in *.csv; do
-	echo ${i%%.*}
+	echo ${i%%.*} >>filenames.txt
 done
+mv filenames.txt counts_output/
+
+cat counts_output/filenames.txt | paste -d'\t' -s - > file_header
+cat counts_output/counts_matrix.csv >> file_header
+
+mv file_header final_output.csv && mv final_output.csv counts_output/
+
+cat counts_output/final_output.csv
+
+
+
 
 
