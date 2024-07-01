@@ -21,12 +21,10 @@ for i in *.csv; do
 done       
 
 echo "The file processing has resulted in the following counts matrix"
-#cat counts_matrix.txt
+
 rm counts_column
 mkdir counts_output
 mv counts_matrix.txt counts_matrix.csv && mv counts_matrix.csv counts_output
-
-echo "The following samples were processed and are in the output CSV file"
 
 if [ -e "filenames.txt" ];then
 	rm filenames.txt
@@ -52,5 +50,4 @@ cat counts_output/final_output.csv
 rm counts_output/filenames2.txt
 rm counts_output/filenames3.txt
 
-
-
+echo "The samples processed in this program can be found in counts_output/filenames.txt"
