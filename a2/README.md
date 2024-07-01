@@ -17,17 +17,32 @@ How to use the command:
 Terminal Execution Results:
 
 [allensu24@sjsu a2]$ ./command.sh
+
 Please enter a filename that contains the gene names in the first column
+
 sampleA.csv
+
 The file processing has resulted in the following counts matrix
+
 GeneA   2       1
+
 GeneB   0       2
+
 GeneC   4       7
+
 GeneD   5       4
+
 The following samples were processed and are in the output CSV file
+
 sampleA sampleB
+
 GeneA   2       1
+
 GeneB   0       2
+
 GeneC   4       7
+
 GeneD   5       4
+
+
 
