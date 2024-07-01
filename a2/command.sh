@@ -21,7 +21,7 @@ for i in *.csv; do
 done       
 
 echo "The file processing has resulted in the following counts matrix"
-cat counts_matrix.txt
+#cat counts_matrix.txt
 rm counts_column
 mkdir counts_output
 mv counts_matrix.txt counts_matrix.csv && mv counts_matrix.csv counts_output
@@ -38,14 +38,19 @@ for i in *.csv; do
 done
 mv filenames.txt counts_output/
 
-cat counts_output/filenames.txt | paste -d'\t' -s - > file_header
+sed '1 s/^/ /' counts_output/filenames.txt > counts_output/filenames2.txt
+sed 's/ /\t/' counts_output/filenames2.txt > counts_output/filenames3.txt
+
+
+cat counts_output/filenames3.txt | paste -d'\t' -s - > file_header
 cat counts_output/counts_matrix.csv >> file_header
 
 mv file_header final_output.csv && mv final_output.csv counts_output/
 
 cat counts_output/final_output.csv
 
-
+rm counts_output/filenames2.txt
+rm counts_output/filenames3.txt
 
 
 
