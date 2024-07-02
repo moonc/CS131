@@ -4,7 +4,7 @@ if [ -d "counts_output" ];then
 	rm -d counts_output
 fi
 
-echo "Please enter a filename that contains the gene names in the first column"
+echo "Please enter a filename that contains the category  names in the first column"
 read gene_file
 
 if [ -e "$gene_file" ]; then
@@ -20,7 +20,7 @@ for i in *.csv; do
       fi
 done       
 
-echo "The file processing has resulted in the following counts matrix"
+echo "The file processing has resulted in the following CSV"
 
 rm counts_column
 mkdir counts_output
