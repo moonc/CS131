@@ -1,0 +1,10 @@
+0) cat /etc/passwd
+
+1) sed '/^1.0,*/ !d' 2019-10.csv > vendor2.csv
+   wc vendor2.csv
+
+2) sed 's/[:"-]//g' 2019-10.csv > no-separators.csv
+   head -10 no-separators.csv >> a3.txt
+
+3) sed 's/\.[0-9]*//g' no-separators.csv > no-fractions.csv
+   head -10 no-fractions.csv >> a3.txt
