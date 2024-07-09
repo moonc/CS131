@@ -8,3 +8,10 @@
 
 3) sed 's/\.[0-9]*//g' no-separators.csv > no-fractions.csv
    head -10 no-fractions.csv >> a3.txt
+
+4) PLEASE NOTE: the awk script used for the following command is in the git repository [LABELED : awk_script.awk]
+
+   awk -F, -f awk_script.awk 2019-10.csv > results.txt
+
+5) sort -k2 -nr results.txt | head -6
+   #Note , head -6 was done to account for the discrepancy if a zero dollar tip is a valid value for the problem.

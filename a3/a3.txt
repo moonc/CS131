@@ -56,3 +56,18 @@ vendorid,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distanc
 2,20191001 002241,20191001 002248,1,0,1,N,193,193,2,2,0,0,0,0,0,3,0
 2,20191001 002314,20191001 002318,1,0,1,N,193,193,2,2,0,0,0,0,0,3,0
 1,20191001 000300,20191001 001337,3,2,1,N,163,239,1,10,3,0,2,0,0,17,2
+
+4) As stated in a3-24su assignment, the answer/output to this problem is in results.txt
+
+5) Top 5 Most Common Tips
+#Note: I have listed 6 values here as the most common tip value is zero dollars. As this techncially is not a logical value as it is not technically a tip, I listed a sixth values
+#      If zero does not count as a tip value, the following are the top 5 tip values in descending order [1.0,2.0,1.5,2.06,2.16]
+#      Else, if zero counts as a tip value, the top 5 tip values are [0.0,1.0,2.0,1.5,2.06]  
+
+0.0 1580916
+1.0 307007
+2.0 265452
+1.5 91442
+2.06 90682
+2.16 89061
+
