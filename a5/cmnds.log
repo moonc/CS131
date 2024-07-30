@@ -9,7 +9,3 @@ sed -e 's/?/-/g' processed.va.data >> summed_processed_data.csv
 cat header.txt > HEART_DISEASE_DF.csv
 awk -F, 'BEGIN{OFS=","}{print $1,$2,$4,$5,$6,$8,$14}' summed_processed_data.csv >> HEART_DISEASE_DF.csv
 
-3) Remove decimal points to help with plotting
-sed 's/\.[0-9]*//g' HEART_DISEASE_DF.csv > new_data.csv
-cat new_data.csv > HEART_DISEASE_DF.csv
-
