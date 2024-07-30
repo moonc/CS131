@@ -1,0 +1,1 @@
+age,sex,restingbp,chol,blood_sugar,max_hr,diagnosis

@@ -1,0 +1,11 @@
+
+1) This set of commands are responsible for aggregating the heart disease data from the many samples in the experiment 
+sed -e 's/?/-/g' processed.cleveland.data > summed_processed_data.csv
+sed -e 's/?/-/g' processed.hungarian.data >> summed_processed_data.csv
+sed -e 's/?/-/g' processed.switzerland.data >> summed_processed_data.csv
+sed -e 's/?/-/g' processed.va.data >> summed_processed_data.csv
+
+2) Next: Filter out relevant variables for analysis in Python using AWK 
+cat header.txt > HEART_DISEASE_DF.csv
+awk -F, 'BEGIN{OFS=","}{print $1,$2,$4,$5,$6,$8,$14}' summed_processed_data.csv >> HEART_DISEASE_DF.csv
+
